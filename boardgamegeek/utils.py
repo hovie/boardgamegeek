@@ -379,7 +379,7 @@ def fix_url(url):
     :return: the fixed url
     """
     if url and url.startswith("//"):
-        url = "http:{}".format(url)
+        url = "https:{}".format(url)
     return url
 
 
