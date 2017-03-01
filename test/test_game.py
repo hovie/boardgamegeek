@@ -143,6 +143,14 @@ def test_get_known_game_info_by_id(bgg):
     check_game(game)
 
 
+def test_game_equivalency(bgg):
+    g1 = bgg.game(None, game_id=TEST_GAME_ID, videos=True, versions=True)
+    g2 = bgg.game(TEST_GAME_NAME, videos=True, versions=True)
+
+    assert g1 == g2
+    assert hash(g1) == hash(g2)
+
+
 def test_get_known_game_info_by_id_list(bgg):
     game_list = bgg.game_list(game_id_list=[TEST_GAME_ID, TEST_GAME_ID_2],
                               videos=True, versions=True)

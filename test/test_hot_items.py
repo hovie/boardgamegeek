@@ -46,3 +46,12 @@ def test_hot_items_initial_data():
     assert h[0].id == 100
     assert h[0].name == "hotitem"
     assert h[0].rank == 10
+
+
+def test_hot_items_equivalency():
+
+    h1 = HotItem({"id": 100, "name": "hotitem", "rank": 10})
+    h2 = HotItem({"id": 100, "name": "hotitem", "rank": 10})
+
+    assert hash(h1) == hash(h2)
+    assert h1 == h2

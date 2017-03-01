@@ -52,3 +52,9 @@ class Thing(DictObject):
 
     def __repr__(self):
         return "Thing (id: {})".format(self.id)
+
+    def __eq__(self, other):
+        return self.data() == other.data()
+
+    def __hash__(self):
+        return hash(repr(self))
